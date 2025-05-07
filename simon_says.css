@@ -1,0 +1,32 @@
+body{
+    text-align: center;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    border-radius: 10%;
+    border: 10px solid black;
+    margin: 2rem;
+}
+
+.button-container {
+    justify-content: center;
+    display: flex;
+}
+
+.red {
+    background-color: #d95980;
+}
+
+.yellow {
+    background-color: #f99b45;
+}
+
+.purple {
+    background-color: #819ff9;
+}
+
+.green {
+    background-color: #63aac0;
+}
