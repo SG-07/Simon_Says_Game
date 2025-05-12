@@ -30,3 +30,15 @@ body{
 .green {
     background-color: #63aac0;
 }
+
+.flash {
+    background-color: white;
+}
+
+.userFlash {
+    background-color: gold;
+}
+
+.gameOver {
+    background-color: red;
+}
