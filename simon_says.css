@@ -1,44 +1,67 @@
-body{
-    text-align: center;
+/* Center text headers */
+body {
+  text-align: center;
+  background-color: white;
+  padding: 20px;
 }
 
+/* Colored boxes */
 .box {
-    height: 150px;
-    width: 150px;
-    border-radius: 10%;
-    border: 10px solid black;
-    margin: 2rem;
+  height: 150px;
+  width: 150px;
+  border-radius: 10%;
+  border: 10px solid black;
+  margin: 2rem;
+  transition: background-color 0.2s ease, filter 0.2s ease;
 }
 
 .button-container {
-    justify-content: center;
-    display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
+/* Colored box backgrounds */
 .red {
-    background-color: #d95980;
+  background-color: #d95980;
 }
 
 .yellow {
-    background-color: #f99b45;
+  background-color: #f99b45;
 }
 
 .purple {
-    background-color: #819ff9;
+  background-color: #819ff9;
 }
 
 .green {
-    background-color: #63aac0;
+  background-color: #63aac0;
 }
 
+/* Flashing effects */
 .flash {
-    background-color: white;
+  background-color: white;
 }
 
 .userFlash {
-    background-color: gold;
+  background-color: gold;
 }
 
+/* Game Over state */
 .gameOver {
-    background-color: red;
+  background-color: red;
 }
+
+/* Button spacing */
+.start, .info {
+  margin: 10px;
+}
+
+/* Hover effect on boxes */
+.box:hover {
+  filter: brightness(1.2);
+  cursor: pointer;
+}
+
+

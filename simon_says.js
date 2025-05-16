@@ -29,35 +29,33 @@ btnStart.addEventListener("click" , () => {
 
 //function to check user input 
 function checkAnswer(idx) {
-    if(userSeq[idx] === gameSeq[idx]) {
-        if(userSeq.length == gameSeq.length) {
+    if (userSeq[idx] === gameSeq[idx]) {
+        if (userSeq.length === gameSeq.length) {
             perfect.play();
             setTimeout(levelUp, 1000);
         }
     } else {
-        let curScore = level-1;
+        let curScore = level - 1;
         let hScore = highScore[0];
-        if(curScore !=0 ) {
-            if(hScore < curScore) {
-                hScore = curScore;
-                highScore[0] = hScore;
-                highScoreSound.play();
-            }
+
+        if (curScore > 0 && hScore < curScore) {
+            highScore[0] = curScore;
+            highScoreSound.play();
         } else {
-            curScore = 0;
+            gameOver.play();
         }
-        
-        h3.innerHTML = `Game over! Your score is <b>${curScore} </b>.<br> <b>Highest Score ${hScore} </b>.`;
-        btnStart.innerText = 'Click here to restart'
-        document.querySelector("body").style.backgroundColor = "red";
-        gameOver.play();
+
+        h3.innerHTML = `Game over! Your score is <b>${curScore}</b>.<br> <b>Highest Score: ${highScore[0]}</b>`;
+        btnStart.innerText = 'Restart';
+        document.querySelector("body").classList.add("gameOver");
+
         setTimeout(() => {
-            document.querySelector("body").style.backgroundColor = "white";
+            document.querySelector("body").classList.remove("gameOver");
             reset();
-        }, 300);
-        
+        }, 1000);
     }
 }
+
 
 //function to flash button when called by game
 function btnFlash(btn) {
