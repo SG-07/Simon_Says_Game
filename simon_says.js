@@ -2,12 +2,15 @@ let gameSeq = [];
 let userSeq = [];
 let color = ["yellow", "red", "purple", "green"];
 let highScore = [0];
+let isMuted = false;
+
 
 //sounds
 let highScoreSound = new Audio("sounds/victory.mp3");
 let perfect = new Audio("sounds/perfect.mp3");
 let gameOver = new Audio("sounds/game_over.wav");
 highScoreSound.volume = 0.4;
+const sounds = [highScoreSound, perfect, gameOver];
 
 
 
@@ -23,8 +26,14 @@ btnStart.addEventListener("click" , () => {
     if(game_state == false) {
         console.log("Game started");
         game_state = true;
+        stopAllSounds();
         btnStart.disabled = true;
         levelUp();
+
+        // Hide buttons
+        document.getElementById("start").style.display = "none";
+        document.getElementById("info").style.display = "none";
+        
     }
 });
 
@@ -49,7 +58,7 @@ function checkAnswer(idx) {
         }
         
         h3.innerHTML = `Game over! Your score is <b>${curScore} </b>.<br> <b>Highest Score ${hScore} </b>.`;
-        btnStart.innerText = 'Click here to restart'
+        btnStart.innerText = 'Start'
         document.querySelector("body").style.backgroundColor = "red";
         gameOver.play();
         setTimeout(() => {
@@ -120,9 +129,34 @@ function reset() {
     gameSeq = [];
     userSeq = [];
     level = 0;
+    document.getElementById("start").style.display = "inline-block";
+    document.getElementById("info").style.display = "inline-block";
+    btnStart.innerText = "Start";
     document.querySelector("body").style.backgroundColor = "white";
     setTimeout( () => {
         game_state = false;
     }, 1000);
     
 }
+
+function stopAllSounds() {
+    highScoreSound.pause();
+    highScoreSound.currentTime = 0;
+
+    perfect.pause();
+    perfect.currentTime = 0;
+
+    gameOver.pause();
+    gameOver.currentTime = 0;
+}
+
+const muteBtn = document.getElementById("mute-toggle");
+
+muteBtn.addEventListener("click", () => {
+    isMuted = !isMuted;
+    muteBtn.innerText = isMuted ? "🔊 Unmute" : "🔇 Mute";
+    
+    sounds.forEach(sound => {
+        sound.muted = isMuted;
+    });
+});
