@@ -7,6 +7,7 @@ let highScore = [0];
 let highScoreSound = new Audio("sounds/victory.mp3");
 let perfect = new Audio("sounds/perfect.mp3");
 let gameOver = new Audio("sounds/game_over.wav");
+highScoreSound.volume = 0.4;
 
 
 
