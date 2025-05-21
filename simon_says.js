@@ -38,20 +38,22 @@ function checkAnswer(idx) {
     } else {
         let curScore = level - 1;
         let hScore = highScore[0];
-
-        if (curScore > 0 && hScore < curScore) {
-            highScore[0] = curScore;
-            highScoreSound.play();
+        if(curScore !=0 ) {
+            if(hScore < curScore) {
+                hScore = curScore;
+                highScore[0] = hScore;
+                highScoreSound.play();
+            }
         } else {
-            gameOver.play();
+            curScore = 0;
         }
-
-        h3.innerHTML = `Game over! Your score is <b>${curScore}</b>.<br> <b>Highest Score: ${highScore[0]}</b>`;
-        btnStart.innerText = 'Restart';
-        document.querySelector("body").classList.add("gameOver");
-
+        
+        h3.innerHTML = `Game over! Your score is <b>${curScore} </b>.<br> <b>Highest Score ${hScore} </b>.`;
+        btnStart.innerText = 'Click here to restart'
+        document.querySelector("body").style.backgroundColor = "red";
+        gameOver.play();
         setTimeout(() => {
-            document.querySelector("body").classList.remove("gameOver");
+            document.querySelector("body").style.backgroundColor = "white";
             reset();
         }, 1000);
     }
