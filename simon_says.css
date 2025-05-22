@@ -92,3 +92,13 @@ button.btn-lg {
   font-size: 1.2rem;
   padding: 0.75rem 1rem;
 }
+
+#mute-toggle.centered {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 15vh;
+}
+
