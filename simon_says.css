@@ -73,6 +73,16 @@ body {
   background-color: red;
 }
 
+/* New record effect */
+.newRecord {
+  background-color: orange;
+}
+
+/* Game play effect */
+.gameStart {
+  background-color: white;
+}
+
 /* Button spacing for original classes */
 .start,
 .info {
@@ -93,12 +103,19 @@ button.btn-lg {
   padding: 0.75rem 1rem;
 }
 
-#mute-toggle.centered {
-  position: absolute;
-  top: 22%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  width: 15vh;
+#mute-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#mute-wrapper.centered {
+  margin-top: 2rem;
+}
+
+#mute-toggle {
+  width: auto;
+  min-width: 120px;
+  padding: 10px 20px;
+  font-size: 1rem;
 }
 
